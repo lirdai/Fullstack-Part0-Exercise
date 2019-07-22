@@ -1,0 +1,54 @@
+0.4: New Note
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+Comment: 
+server handle post 
+
+server-->browser: HTTP status code 302
+
+Comment: 
+status code 302 asks the browser to do a new HTTP GET request to reload the Notes Page
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+Comment:
+browser starts executing js-code that requests JSON data from server end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23T17:30:31.098Z" }, ...]
+
+Comment:
+browser executes the event handler that renders notes to display end note
+
+
+
+0.5: Single Page App
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code that requests JSON data from server end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23T17:30:31.098Z" }, ...]
+
+note over browser:
+browser executes the event handler that renders notes to display end note
+
+
+
+0.6: New Note
+Comment: 
+browser adds new note to notes array
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+server-->browser: {"message":"note created"}
